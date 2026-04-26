@@ -1,0 +1,243 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>996-Coin</title>
+  <style>
+    :root {
+      --slm-bg-top: #255479;
+      --slm-bg-bottom: #b9dbcb;
+      --slm-card-bg: rgba(8, 25, 40, 0.86);
+      --slm-border: rgba(255, 255, 255, 0.08);
+      --slm-text-main: #f5f7fa;
+      --slm-text-muted: #cfd8dc;
+      --slm-accent: #f4d247;   /* 996-Coin yellow */
+      --slm-accent-soft: #ffe58a;
+      --slm-danger: #ff8a80;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif;
+      background: radial-gradient(circle at 0% 0%, #3a5479 0, var(--slm-bg-top) 30%),
+                  linear-gradient(180deg, var(--slm-bg-top), var(--slm-bg-bottom));
+      color: var(--slm-text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1100px;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .card {
+      background: var(--slm-card-bg);
+      border-radius: 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+      padding: 1.75rem 2rem 2rem;
+      border: 1px solid var(--slm-border);
+      backdrop-filter: blur(18px);
+    }
+
+    a {
+      color: var(--slm-accent-soft);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--slm-accent);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      letter-spacing: 0.02em;
+    }
+
+    h1 a {
+      color: var(--slm-text-main);
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--slm-border);
+      padding-bottom: 0.9rem;
+    }
+
+    nav.meta {
+      margin-top: 0.35rem;
+      color: var(--slm-text-muted);
+      font-size: 0.9rem;
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.85rem;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 0.75rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      table-layout: auto;
+    }
+
+    th, td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 0.45rem 0.55rem;
+      font-size: 0.9rem;
+      vertical-align: top;
+      word-break: break-word;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.04);
+      text-align: left;
+      font-weight: 600;
+      color: var(--slm-text-muted);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .error {
+      color: var(--slm-danger);
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(183, 28, 28, 0.18);
+      border: 1px solid rgba(255, 138, 128, 0.4);
+      font-size: 0.9rem;
+    }
+
+    .meta {
+      color: var(--slm-text-muted);
+      font-size: 0.9rem;
+    }
+
+    form {
+      margin: 0.75rem 0 0.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    label {
+      margin-right: 0.35rem;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 0.3rem 0.55rem;
+      min-width: 220px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(10, 33, 52, 0.9);
+      color: var(--slm-text-main);
+      outline: none;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border-color: var(--slm-accent);
+      box-shadow: 0 0 0 1px rgba(244, 210, 71, 0.35);
+    }
+
+    input[type="submit"] {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--slm-accent), var(--slm-accent-soft));
+      color: #2b2b2b;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    input[type="submit"]:hover {
+      filter: brightness(1.05);
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    @media (max-width: 720px) {
+      .card {
+        padding: 1.25rem 1.3rem 1.5rem;
+      }
+      form {
+        align-items: stretch;
+      }
+      input[type="text"],
+      input[type="number"] {
+        flex: 1 1 100%;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="card">
+      <header>
+        <h1><a href="/">996-Coin</a></h1>
+        <nav class="meta">
+          By the <a href="https://hashcashfaucet.com/">HCC Community</a>
+          <hr>
+          <a href="https://discord.gg/Vg3qpWqDay">Join our Discord</a>&nbsp;|
+          <a href="https://github.com/Imusing/996-Coin">GitHub Repository</a>&nbsp;|
+            <a href="https://explorer.996coin.com/">Explorer</a>&nbsp;|
+            <a href="https://klingex.io/trade/NNS-USDT">Trade on Klingex</a>&nbsp;|
+            <a href="https://github.com/Hashcash-PoW-Faucet/996-Paper-Wallet">996-Coin Paper Wallet Generator</a>&nbsp;|
+            <a href="https://github.com/Hashcash-PoW-Faucet/996-Coin-Whitepaper/blob/main/Whitepaper.md">996-Coin Whitepaper</a></li>
+        </nav>
+      </header>
+
+    <img src="996.png" width="200" alt="996-Coin Logo" style="display: block; margin: 0 auto 1.5rem;">
+
+    <p>Welcome to the 996-Coin Website! This is the official home of 996-Coin (nine hundred ninety-six coin), a cryptocurrency designed to tip other people. 996-Coin runs on PoS 3.0, features Multi-PoS reward sharing, and uses an anti-whale staking limit of 125,000 coins per UTXO to make staking fairer and more decentralized.
+        </p><br>
+        It is named after an internal joke in the HCC community.</p>
+
+        <!--<h2>fat link header removed due to a request by tedy</h2>-->
+        
+
+        <h6>&copy; 2026 The 996-Coin Contributors. All rights reserved.</h6>
+
+    </div>
+  </div>
+
+</body></html>
